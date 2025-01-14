@@ -1,0 +1,16 @@
+/* Add sparkle and shake animation */
+@keyframes sparkle {
+    0% { background-color: #4299e1; }
+    50% { background-color: #9f7aea; }
+    100% { background-color: #f6ad55; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+button:active {
+    animation: shake 0.3s ease, sparkle 1s ease infinite;
+}

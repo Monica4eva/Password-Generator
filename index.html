@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('password generator.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .btn-animate {
+            transition: transform 0.2s ease-in-out;
+        }
+        .btn-animate:hover {
+            transform: scale(1.05) translateY(-3px);
+        }
+        .sparkle-border {
+            border: 4px solid;
+            border-image-source: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1, #ff9a9e);
+            border-image-slice: 1;
+            animation: sparkle-animation 3s linear infinite;
+        }
+
+        @keyframes sparkle-animation {
+            0% {
+                border-image-source: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1);
+            }
+            25% {
+                border-image-source: linear-gradient(45deg, #ffdde1, #ff9a9e, #fad0c4);
+            }
+            50% {
+                border-image-source: linear-gradient(45deg, #fad0c4, #ffdde1, #ff9a9e);
+            }
+            75% {
+                border-image-source: linear-gradient(45deg, #ff9a9e, #ffdde1, #fad0c4);
+            }
+            100% {
+                border-image-source: linear-gradient(45deg, #ffdde1, #ff9a9e, #fad0c4);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+
+    <div class="max-w-lg w-full mx-auto bg-white p-8 rounded-xl shadow-lg sparkle-border">
+        <div class="flex justify-center mb-6">
+            <img src="./Purrrfect Paswords(1).png" alt="Logo" class="w-36 h-36 rounded-full shadow-lg">
+        </div>
+        <h1 class="text-4xl font-bold text-center text-pink-800 mb-8">Password Generator</h1>
+        <form id="password-form" class="space-y-6">
+            <div>
+                <label for="length" class="block text-lg font-medium text-gray-700">Password Length</label>
+                <input type="number" id="length" name="length" min="8" max="20" value="12"
+                    class="w-full mt-2 p-3 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-center">
+                    <input type="checkbox" id="uppercase" name="uppercase" checked class="h-5 w-5 text-pink-600">
+                    <label for="uppercase" class="ml-3 text-lg text-gray-700">Include Uppercase Letters</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="lowercase" name="lowercase" checked class="h-5 w-5 text-pink-600">
+                    <label for="lowercase" class="ml-3 text-lg text-gray-700">Include Lowercase Letters</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="numbers" name="numbers" checked class="h-5 w-5 text-pink-600">
+                    <label for="numbers" class="ml-3 text-lg text-gray-700">Include Numbers</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="symbols" name="symbols" checked class="h-5 w-5 text-pink-600">
+                    <label for="symbols" class="ml-3 text-lg text-gray-700">Include Special Characters</label>
+                </div>
+            </div>
+            <button type="submit" 
+                class="w-full bg-gradient-to-r from-pink-700 to-pink-500 text-white py-3 rounded-lg btn-animate shadow-lg hover:from-pink-700 hover:to-pink-500 focus:outline-none">
+                Generate Password
+            </button>
+        </form>
+
+        <div class="mt-6">
+            <label class="block text-lg font-medium text-gray-700">Generated Password</label>
+            <input type="text" id="generated-password" readonly
+                class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none">
+        </div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
